@@ -12,7 +12,6 @@
             #{id}
         </foreach>
 
-
     </delete>
     <select id="list" resultType="com.itheima.pojo.Emp">
         select *
