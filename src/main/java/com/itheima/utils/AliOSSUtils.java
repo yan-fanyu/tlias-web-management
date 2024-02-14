@@ -2,6 +2,10 @@ package com.itheima.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.util.UUID;
@@ -9,17 +13,22 @@ import java.util.UUID;
 /**
  * 阿里云 OSS 工具类
  */
+@Component
 public class AliOSSUtils {
 
-    private String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
-    String accessKeyId = "LTAI5tA3h1rHeBrKBjdvZx4s";
-    String accessKeySecret = "pnV23bC6c9htoJ3zLGPSVXnpx5nVd3";
-    private String bucketName = "web-tlias-yanfanyu";
+    @Autowired
+    private AliOSSProperties aliOSSProperties;
 
     /**
      * 实现上传图片到OSS
      */
     public String upload(MultipartFile file) throws IOException {
+
+        String endpoint = aliOSSProperties.getEndpoint();
+        String accessKeyId = aliOSSProperties.getAccessKeyId();
+        String accessKeySecret = aliOSSProperties.getAccessKeySecret();
+        String bucketName = aliOSSProperties.getBucketName();
+
         // 获取上传的文件的输入流
         InputStream inputStream = file.getInputStream();
 
