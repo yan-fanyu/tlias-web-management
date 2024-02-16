@@ -1,7 +1,9 @@
 package com.itheima;
 
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import io.jsonwebtoken.Jwts;
 
 import java.util.UUID;
 
@@ -19,5 +21,12 @@ class TliasWebManagementApplicationTests {
             System.out.println(uuid);
         }
     }
+
+    @Test
+    public void testGenJwt(){
+        Jwts.builder();
+
+    }
+
 
 }

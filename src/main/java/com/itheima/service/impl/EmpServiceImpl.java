@@ -20,22 +20,6 @@ public class EmpServiceImpl implements EmpService {
     @Autowired
     private EmpMapper empMapper;
 
-//    @Override
-//    public PageBean page(Integer page, Integer pageSize,
-//                         String name, Short gender,
-//                         LocalDate begin, LocalDate end) {
-//        //1. 获取总记录数
-//        Long count = empMapper.count();
-//
-//        //2. 获取分页查询结果列表
-//        Integer start = (page - 1) * pageSize;
-//        List<Emp> p = empMapper.list(name, gender, begin, end);
-//
-//        //3. 封装PageBean对象
-//        PageBean pageBean = new PageBean(count, empList);
-//        return pageBean;
-//    }
-
 
     // 使用PageHelper查询
     @Override
@@ -77,6 +61,11 @@ public class EmpServiceImpl implements EmpService {
         emp.setUpdateTime(LocalDateTime.now());
 
         empMapper.update(emp);
+    }
+
+    @Override
+    public Emp login(Emp emp) {
+        return empMapper.getByUsernameAndPassword(emp);
     }
 
 
