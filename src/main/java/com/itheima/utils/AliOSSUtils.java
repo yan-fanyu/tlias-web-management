@@ -12,6 +12,7 @@ import java.util.UUID;
 
 /**
  * 阿里云 OSS 工具类
+ * 哈哈
  */
 @Component
 public class AliOSSUtils {
