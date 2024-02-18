@@ -2,8 +2,6 @@ package com.itheima.service;
 
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.PageBean;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -13,14 +11,11 @@ import java.util.List;
 public interface EmpService {
     /**
      * 分页查询
-     * @param start
+     * @param page
      * @param pageSize
      * @return
      */
-    public PageBean page(Integer start, Integer pageSize,
-                         String name, Short gender,
-                         LocalDate begin,
-                         LocalDate end);
+    PageBean page(Integer page, Integer pageSize,String name, Short gender,LocalDate begin,LocalDate end);
 
     /**
      * 批量删除
@@ -34,9 +29,23 @@ public interface EmpService {
      */
     void save(Emp emp);
 
+    /**
+     * 根据ID查询员工
+     * @param id
+     * @return
+     */
     Emp getById(Integer id);
 
+    /**
+     * 更新员工
+     * @param emp
+     */
     void update(Emp emp);
 
+    /**
+     * 员工登录
+     * @param emp
+     * @return
+     */
     Emp login(Emp emp);
 }

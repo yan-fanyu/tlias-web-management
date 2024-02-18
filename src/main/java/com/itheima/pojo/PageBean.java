@@ -3,7 +3,6 @@ package com.itheima.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 /**
@@ -14,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PageBean {
 
-    private Long total; // 总记录数
-    private List<Emp> rows;  // 数据列表
+    private Long total;//总记录数
+    private List rows;//数据列表
 
 }
